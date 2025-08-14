@@ -7,27 +7,22 @@ menuBtn.onclick = () => {
 }
 
 var swiper = new Swiper(".course-slider", {
-    spaceBetween: 20,
-    grabCursor: true,
-    loop: true,
-    scrollbar: {
-        el: ".swiper-scrollbar",
-        hide: true,
-        clickable: true,
+      spaceBetween: 20,
+      grabCursor: true,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable :true
       },
       breakpoints: {
-        540: {
+        450: {
           slidesPerView: 1,
         },
         768: {
-          slidesPerView: 2,
-        },
-        991: {
           slidesPerView: 3,
         },
         1024: {
           slidesPerView: 3,
         },
-    },
+      },
     });
-    
