@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FIKRA :) </title>
+<!--swiper css link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- font awesome cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--custom css link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!--header section start -->
+   <header class="header">
+       <section class ="flex">
+        <a href="#home" class ="logo">FIKRA.</a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#courses">courses</a>
+            <a href="#teachers">teachers</a>
+            <a href="#reviews">reviews</a>
+            <a href="#contact">contact</a>
+        </nav>
+        <div id="menu-btn" class ="fas fa-bars"></div>
+       </section>
+   </header>
+   <!--header section end -->
+
+   <!--home section start -->
+   <section class="home" id="home ">
+    <div class = "row">
+        <div class ="content">
+           <h6>Welcome to <span class="logo-text">FIKRA.</span></h6>
+            <p><br>Learn, explore, and grow all in one place,
+               <br>at your own pace.</p>
+            <a href="#contact" class="btn"> GUEST</a>
+            <a href="#contact" class="btn"> SIGN IN</a>
+        </div>
+        <div class ="image">
+            <img src="images/Online learning-bro.png" alt="">
+        </div>
+    </div>
+   </section>
+    <!--home section end -->
+    <!--counter section start -->
+    <section class ="count">
+        <h2> WHY CHOOSE US  ?</h2>
+        <div class ="box-container">
+            <div class ="box">
+                <i class="fas fa-graduation-cap icon"></i>
+                <div class="content">
+                    <h3>150+</h3>
+                    <p>courses </p>
+                </div>
+            </div>
+             <div class ="box">
+                <i class="fas fa-user-graduate" id ="icon"></i>
+                <div class="content">
+                    <h3>1300++</h3>
+                    <p>students graduated</p>
+                </div>
+            </div>
+             <div class ="box">
+                <i class="fas fa-chalkboard-teacher" id ="icon"></i>
+                <div class="content">
+                    <h3>80+</h3>
+                    <p>teachers</p>
+                </div>
+            </div>
+             <div class ="box">
+                <i class="fas fa-face-smile" id ="icon"></i>
+                <div class="content">
+                    <h3>100%</h3>
+                    <p>satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--counter section end -->
+
+<!-- courses section starts-->
+   <section class = "courses" id="courses">
+      <h1 class ="heading"> Our <span>Courses</span></h1>
+      <div class ="swiper course-slider">
+        <div class ="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <img src="images/Medical research-cuate.png" alt="">
+                <h3>1st med school</h3>
+                <p>Foundations of medicine for first-year students, covering basic sciences and essential skills.</p>
+            </div>
+            <div class="swiper-slide slide">
+                <img src="images/Stem-cell research-cuate.png" alt="">
+                <h3>2end med school</h3>
+                <p>Advanced medical sciences with a focus on physiology, anatomy, histology, and more.</p>
+            </div>
+            <div class="swiper-slide slide">
+                <img src="images/Rheumatology-bro.png" alt="">
+                <h3>3rd med school</h3>
+                <p>Specialized clinical training with deeper studies in pathology, pharmacology, and patient care.</p>
+            </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+   </section>
+<!-- courses section end -->
+
+<!--swiper js link -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--custom js link -->
+    <script src="script.js"></script>
+</body>
+</html>
