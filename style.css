@@ -279,7 +279,7 @@ section {
 }
 
 .courses .slide {
-   width: 30rem;
+   width: 100%;
    background-color: var(--light-bg);
    border-radius : .5rem;
    text-align : center;
@@ -288,7 +288,7 @@ section {
 }
 
 .courses .slide img {
-   height:30rem;
+   height:40rem;
    width: 100%;
 }
 
@@ -332,18 +332,6 @@ section {
     width: 26rem;              /* keep the same width */
     scroll-snap-align: start;  /* snap to start (optional) */
     }
-    
-    .courses .slide {
-      width: 100%;
-      max-width: 33rem; /* keeps it from being too wide */
-      margin: 0 auto 2rem auto; /* center it */
-   }
-
-   /* Adjust image size */
-   .courses .slide img {
-      height: auto; /* let it resize naturally */
-      max-height: 22rem;
-   }
 }
 
 @media (max-width: 789px) {
