@@ -5,6 +5,11 @@ menuBtn.onclick = () => {
     menuBtn.classList.toggle ('fa-times');
     navbar.classList.toggle('active');
 }
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuBtn.contains(e.target)) {
+        navbar.classList.remove('active');
+    }
+});
 
 var swiper = new Swiper(".course-slider", {
       spaceBetween: 20,
