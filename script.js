@@ -44,6 +44,9 @@ var swiper = new Swiper(".course-slider", {
         clickable :true
       },
       breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
         450: {
           slidesPerView: 2,
         },
