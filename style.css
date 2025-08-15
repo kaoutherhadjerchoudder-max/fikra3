@@ -478,6 +478,11 @@ section {
     .count h2 {
         font-size: 2rem;
     }
+  .courses .slide img {
+   height:35rem;
+   width: 100%;
 }
+}
+
 
 
