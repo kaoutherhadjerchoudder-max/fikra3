@@ -286,6 +286,7 @@ section {
    text-align : center;
    margin-bottom: 4rem;
    padding : 2rem;
+   height: 90%;
 }
 
 .courses .swiper-slide:hover {
@@ -320,6 +321,7 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     height: auto;
+    width: auto;
     margin-bottom: 4rem;
 }
 
