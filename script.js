@@ -45,7 +45,7 @@ var swiper = new Swiper(".course-slider", {
       },
       breakpoints: {
         320: {
-          slidesPerView: 1,
+          slidesPerView: 2,
         },
         450: {
           slidesPerView: 2,
@@ -58,3 +58,4 @@ var swiper = new Swiper(".course-slider", {
         },
       },
     });
+
