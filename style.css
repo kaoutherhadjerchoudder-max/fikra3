@@ -180,7 +180,7 @@ section {
     flex: 1 1 40rem;
 }
 
-.home .row .image img {
+.home .row .image object {
     width: 100%;
 }
 
@@ -479,3 +479,4 @@ section {
         font-size: 2rem;
     }
 }
+
