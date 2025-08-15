@@ -1,13 +1,16 @@
 let menuBtn = document.querySelector('#menu-btn');
 let navbar = document.querySelector('.header .flex .navbar');
 
-menuBtn.onclick = () => {
-    menuBtn.classList.toggle ('fa-times');
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent triggering the document click
+    menuBtn.classList.toggle('fa-times');
     navbar.classList.toggle('active');
-}
+});
+
 document.addEventListener('click', (e) => {
     if (!navbar.contains(e.target) && !menuBtn.contains(e.target)) {
         navbar.classList.remove('active');
+        menuBtn.classList.remove('fa-times'); // also reset icon
     }
 });
 
