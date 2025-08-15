@@ -62,16 +62,17 @@ section {
 
 .btn {
     display: inline-block;
-    font-weight: 500; 
-    margin: 1rem;
+    font-weight: 600; 
+    margin: 1.2rem;
     border-radius: 5rem;
     background-color: var(--light-bg);
     cursor: pointer;
     color: var(--black);
-    font-size: 1.7rem;
-    padding: 1rem 3rem;
-    transition: all 0.3s ease; /* smooth animation */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* subtle depth */
+    font-size: 2rem; /* bigger text */
+    padding: 1.5rem 4rem; /* more inside space */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* deeper shadow */
+    border: 2px solid var(--green); /* matches theme */
 }
 
 .btn:hover {
