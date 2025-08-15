@@ -495,3 +495,9 @@ section {
    width: 100%;
 }
 }
+
+@media (prefers-color-scheme: dark) {
+    #theme-image {
+        content: url("images/online-learning-animate (2).svg");
+    }
+}
