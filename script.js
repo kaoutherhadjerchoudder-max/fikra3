@@ -96,3 +96,9 @@ toggleBtn.addEventListener("click", () => {
 
 // Apply theme on page load
 updateTheme();
+
+const toggle = document.getElementById('theme-toggle');
+toggle.addEventListener('click', () => {
+    toggle.classList.toggle('dark');
+    document.body.classList.toggle('dark-mode');
+});
