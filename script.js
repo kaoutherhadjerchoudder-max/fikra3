@@ -59,3 +59,40 @@ var swiper = new Swiper(".course-slider", {
       },
     });
 
+
+const darkImg = document.querySelector('.light-only');
+const lightImg = document.querySelector('.light-only');
+const toggleBtn = document.getElementById('theme-toggle');
+
+// Load saved theme
+let isDark = localStorage.getItem("theme") === "dark";
+
+function updateTheme() {
+  if (isDark) {
+    document.body.classList.add("dark-mode");
+    document.body.classList.remove("light-mode");
+
+    if (darkImg) darkImg.style.display = "block";
+    if (lightImg) lightImg.style.display = "none";
+
+    toggleBtn.textContent = "☀️"; // show sun when dark
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.body.classList.add("light-mode");
+    document.body.classList.remove("dark-mode");
+
+    if (lightImg) lightImg.style.display = "block";
+    if (darkImg) darkImg.style.display = "none";
+
+    toggleBtn.textContent = "🌙"; // show moon when light
+    localStorage.setItem("theme", "light");
+  }
+}
+
+toggleBtn.addEventListener("click", () => {
+  isDark = !isDark;
+  updateTheme();
+});
+
+// Apply theme on page load
+updateTheme();
