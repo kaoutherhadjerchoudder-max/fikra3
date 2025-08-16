@@ -119,7 +119,7 @@ section {
         rgba(255, 255, 255, 0.75)
     ); /* soft gradient transparency */
     backdrop-filter: blur(12px); /* slightly more glass effect */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.975);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* softer, bigger shadow */
     padding: 1.2rem 3rem; /* more breathing room */
     transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -136,11 +136,6 @@ section {
 .header .flex .navbar { 
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    background: rgba(255, 255, 255, 0.95); /* light background */
-    border-radius: 0.5rem;
-    padding: 1rem 2rem; /* more padding for better spacing */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* subtle shadow */
 }
 .header .flex .logo {
     font-size: 2.5rem;
@@ -187,8 +182,8 @@ section {
 }
 
 body.dark-mode .header .flex .navbar {
-    background: rgba(30, 30, 40, 0.95);  /* dark background */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 30, 40, 0.9);  /* dark background */
+    
 }
 
 body.dark-mode .header .flex .navbar a {
@@ -519,6 +514,12 @@ body.dark-mode .header .flex .navbar a:hover {
    height:40rem;
    width: 100%;
 }
+.header-buttons {
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%);
+    }
 }
 
 @media (max-width: 320px) {
@@ -531,34 +532,34 @@ body.dark-mode .header .flex .navbar a:hover {
     .courses .slide img {
    height:40rem;
    width: 100%;
+   align-items: center;
 }
+}
+
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;  /* space between menu and dark button */
+    position: relative;
 }
 
 #theme-toggle {
-   display: inline-block;
-    font-weight: 600; 
-    margin: 1.2rem;
-    border-radius: 5rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--green);
     background-color: var(--light-bg);
     cursor: pointer;
-    color: var(--black);
-    font-size: 2rem; /* bigger text */
-    padding: 1.5rem 4rem; /* more inside space */
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* deeper shadow */
-    border: 2px solid var(--green); /* matches theme */
 }
+
 #theme-toggle:hover {
-    background-color: var(--white);
-    color: var(--black);
-    transform: translateY(-3px) scale(1.05); /* lift and grow */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* stronger shadow */
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
-#theme-icon {
-  width: 20px;   /* increase size */
-  height: 40px;  /* keep proportions */
-  transition: filter 0.3s ease;
-}
-
-
 
