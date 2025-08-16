@@ -769,3 +769,44 @@ body.dark-mode .header .flex .navbar a:hover {
     box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* stronger shadow */
 }
 
+.simple-footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.footer-logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.footer-text {
+  font-size: 1.4rem;
+  color: var(--light-white);
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  margin-bottom: 1.5rem;
+}
+
+.footer-social a {
+  margin: 0 0.8rem;
+  font-size: 2rem;
+  color: var(--light-white);
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--green); /* highlight color */
+}
+
+.footer-copy {
+  font-size: 1.2rem;
+  color: var(--light-white);
+  opacity: 0.8;
+}
+
