@@ -51,7 +51,7 @@ html{
 }
 
 body {
-    background-color: var(--white); /* gona change  */
+    background-color: var(--white); 
 }
 
 section {
@@ -111,14 +111,14 @@ section {
 }
 
 
-.header .flex{
+.header .flex {  
     position : relative;
     display : flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.header .flex .logo{
+.header .flex .logo {
     font-size: 2.5rem;
     color: var(--black);
 }
@@ -179,9 +179,24 @@ section {
 .home .row .image {
     flex: 1 1 40rem;
 }
-
-.home .row .image object {
+/* Show light version only in light mode */
+.home .row .image img {
     width: 100%;
+    display: none;
+}
+
+
+@media (prefers-color-scheme: light) {
+  .home .row .image img.light-only {
+    display: block;
+  }
+}
+
+/* Show dark version only in dark mode */
+@media (prefers-color-scheme: dark) {
+ .home .row .image img.dark-only {
+    display: block;
+  }
 }
 
 .home .row .content h6 {
@@ -494,10 +509,4 @@ section {
    height:40rem;
    width: 100%;
 }
-}
-
-@media (prefers-color-scheme: dark) {
-    #theme-image {
-        content: url("images/online-learning-animate (2).svg");
-    }
 }
