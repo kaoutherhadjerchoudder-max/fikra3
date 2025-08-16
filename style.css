@@ -7,6 +7,10 @@
   --light-white: #d8e1f5;  /* Muted light for secondary text */
   --black: #1f2230;        /* Deep navy-black for contrast */
   --light-bg: #e8edfc;     /* Light bluish background for sections */
+   /* shapes palette (light) */
+  --shape1: #7494ec;
+  --shape2: #9aaefc; 
+  --shape3: #9aaefc;
 }
 
 /* Dark mode */
@@ -18,6 +22,9 @@ body.dark-mode {
   --light-bg: #2a2d3e;    /* cards/sections background */
   background-color: var(--white);
   color: var(--black);
+  --shape1: #2a67ff;
+  --shape2: #444b6e;
+  --shape3: #5d7bff;
 }
 
 body.dark-mode .header {
@@ -66,8 +73,66 @@ html{
 }
 
 body {
-    background-color: var(--white); 
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
+    /* === Background Animated Shapes === */
+    .shape {
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.25;
+      z-index: -1;
+      filter: blur(30px);
+    }
+
+    .shape.one {
+      width: 250px; height: 250px;
+      background: var(--shape1);
+      top: 10%; left: 5%;
+      animation: float1 20s ease-in-out infinite;
+    }
+
+    .shape.two {
+      width: 200px; height: 200px;
+      background: var(--shape2);
+      top: 60%; left: 70%;
+      animation: float2 25s ease-in-out infinite;
+    }
+
+    .shape.three {
+      width: 300px; height: 300px;
+      background: var(--shape3);
+      top: 80%; left: 20%;
+      animation: float3 30s ease-in-out infinite;
+    }
+
+    /* === Floating Animations === */
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(150px, -100px) scale(1.15); }
+      50% { transform: translate(-120px, 120px) scale(0.9); }
+      75% { transform: translate(100px, 80px) scale(1.05); }
+    }
+
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(150px, -100px) scale(1.15); }
+      50% { transform: translate(-120px, 120px) scale(0.9); }
+      75% { transform: translate(100px, 80px) scale(1.05); }
+    }
+
+    @keyframes float3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(150px, -100px) scale(1.15); }
+      50% { transform: translate(-120px, 120px) scale(0.9); }
+      75% { transform: translate(100px, 80px) scale(1.05); }
+    }
 
 section {
     max-width: 1200px;
@@ -480,7 +545,7 @@ body.dark-mode .header .flex .navbar a:hover {
 }
 
 
-     .home .row .content h3{
+.home .row .content h3{
         font-size: 6rem; 
     }
     .count h2 {
