@@ -126,11 +126,11 @@ section {
 }
 
 
-.header .flex {  
-    position : relative;
-    display : flex;
-    align-items: center;
+.header .flex {
+    display: flex;
+    align-items: center;  /* vertically aligns everything */
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .header .flex .navbar { 
@@ -514,11 +514,11 @@ body.dark-mode .header .flex .navbar a:hover {
    height:40rem;
    width: 100%;
 }
-.header-buttons {
-        position: absolute;
-        top: 50%;
-        right: 2rem;
-        transform: translateY(-50%);
+.header .flex {
+        justify-content: space-between;
+    }
+    .header-buttons {
+        position: relative; /* stays with logo row */
     }
 }
 
@@ -534,14 +534,19 @@ body.dark-mode .header .flex .navbar a:hover {
    width: 100%;
    align-items: center;
 }
+.header .flex {
+        justify-content: space-between;
+    }
+    .header-buttons {
+        position: relative; /* stays with logo row */
+    }
 }
 
 
 .header-buttons {
     display: flex;
-    align-items: center;
-    gap: 1rem;  /* space between menu and dark button */
-    position: relative;
+    align-items: center;  /* aligns menu & theme with logo */
+    gap: 1rem;
 }
 
 #theme-toggle {
