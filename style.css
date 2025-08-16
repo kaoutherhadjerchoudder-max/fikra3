@@ -133,6 +133,15 @@ section {
     justify-content: space-between;
 }
 
+.header .flex .navbar { 
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.95); /* light background */
+    border-radius: 0.5rem;
+    padding: 1rem 2rem; /* more padding for better spacing */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* subtle shadow */
+}
 .header .flex .logo {
     font-size: 2.5rem;
     color: var(--black);
@@ -175,6 +184,19 @@ section {
     color : var(--black);
     font-size: 2.5rem;
     display : none;
+}
+
+body.dark-mode .header .flex .navbar {
+    background: rgba(30, 30, 40, 0.95);  /* dark background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .header .flex .navbar a {
+    color: #f5f5f5; /* light text */
+}
+
+body.dark-mode .header .flex .navbar a:hover {
+    color: var(--green); /* keep accent hover */
 }
 
 
