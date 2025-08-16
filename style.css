@@ -9,7 +9,22 @@
   --light-bg: #e8edfc;     /* Light bluish background for sections */
 }
 
+/* Dark mode */
+body.dark-mode {
+  --green: #9aaefc;       /* softer accent for dark mode */
+  --white: #1f2230;       /* dark background */
+  --light-white: #2c2f40; /* darker secondary */
+  --black: #f8faff;       /* text becomes light */
+  --light-bg: #2a2d3e;    /* cards/sections background */
+  background-color: var(--white);
+  color: var(--black);
+}
 
+body.dark-mode .header {
+  background: rgba(30, 30, 40, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
 
 * {
   /*font-family: 'Rubik', sans-serif;*/
@@ -162,6 +177,7 @@ section {
     display : none;
 }
 
+
 .home {
     margin-top: 6rem;
 }
@@ -182,27 +198,6 @@ section {
 /* Show light version only in light mode */
 .home .row .image img {
     width: 100%;
-    display: none;
-}
-
-
-@media (prefers-color-scheme: light) {
-  .home .row .image img.light-only {
-    display: block;
-  }
-    .home .row .image img.dark-only {
-        display: none;
-    }
-}
-
-/* Show dark version only in dark mode */
-@media (prefers-color-scheme: dark) {
- .home .row .image img.dark-only {
-    display: block;
-  }
-  .home .row .image img.light-only {
-    display: none;
-  }
 }
 
 .home .row .content h6 {
@@ -239,7 +234,7 @@ section {
     margin-bottom: 2rem;
     padding : 1rem 2rem;
 }
-.count .box-container{
+.count .box-container {
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
     gap: 2rem;
@@ -516,3 +511,32 @@ section {
    width: 100%;
 }
 }
+
+#theme-toggle {
+   display: inline-block;
+    font-weight: 600; 
+    margin: 1.2rem;
+    border-radius: 5rem;
+    background-color: var(--light-bg);
+    cursor: pointer;
+    color: var(--black);
+    font-size: 2rem; /* bigger text */
+    padding: 1.5rem 4rem; /* more inside space */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* deeper shadow */
+    border: 2px solid var(--green); /* matches theme */
+}
+#theme-toggle:hover {
+    background-color: var(--white);
+    color: var(--black);
+    transform: translateY(-3px) scale(1.05); /* lift and grow */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* stronger shadow */
+}
+#theme-icon {
+  width: 20px;   /* increase size */
+  height: 40px;  /* keep proportions */
+  transition: filter 0.3s ease;
+}
+
+
+
