@@ -60,13 +60,14 @@ var swiper = new Swiper(".course-slider", {
     });
 
 
-const darkImg = document.querySelector('.light-only');
+const darkImg = document.querySelector('.dark-only');
 const lightImg = document.querySelector('.light-only');
 const toggleBtn = document.getElementById('theme-toggle');
 
-// Load saved theme
+// Load saved theme or default to light
 let isDark = localStorage.getItem("theme") === "dark";
 
+// Update theme function
 function updateTheme() {
   if (isDark) {
     document.body.classList.add("dark-mode");
@@ -75,8 +76,7 @@ function updateTheme() {
     if (darkImg) darkImg.style.display = "block";
     if (lightImg) lightImg.style.display = "none";
 
-    toggleBtn.textContent = "☀️"; // show sun when dark
-    localStorage.setItem("theme", "dark");
+    toggleBtn.textContent = "☀️"; // sun icon for dark mode
   } else {
     document.body.classList.add("light-mode");
     document.body.classList.remove("dark-mode");
@@ -84,21 +84,16 @@ function updateTheme() {
     if (lightImg) lightImg.style.display = "block";
     if (darkImg) darkImg.style.display = "none";
 
-    toggleBtn.textContent = "🌙"; // show moon when light
-    localStorage.setItem("theme", "light");
+    toggleBtn.textContent = "🌙"; // moon icon for light mode
   }
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
+// Single click event
 toggleBtn.addEventListener("click", () => {
-  isDark = !isDark;
+  isDark = !isDark;  // toggle
   updateTheme();
 });
 
 // Apply theme on page load
 updateTheme();
-
-const toggle = document.getElementById('theme-toggle');
-toggle.addEventListener('click', () => {
-    toggle.classList.toggle('dark');
-    document.body.classList.toggle('dark-mode');
-});
