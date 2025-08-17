@@ -810,3 +810,196 @@ body.dark-mode .header .flex .navbar a:hover {
   opacity: 0.8;
 }
 
+/* login styl */
+/* Layout */
+/* --- Base Layout --- */
+.login-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Left side (image) */
+.login-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Right side (form) */
+.login-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* --- Login Card --- */
+.login-card {
+  padding: 70px 50px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  width: 100%;
+  max-width: 520px;
+  min-height: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-card h2 {
+  margin-bottom: 40px;
+  font-size: 2.8rem;
+}
+
+/* --- Input Groups with Icons --- */
+.input-group {
+  position: relative;   /* Important for icons */
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  color: var(--black);
+  transition: 0.3s ease;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 18px 22px 18px 55px;  /* space for icon */
+  border: 1px solid var(--light-white);
+  border-radius: 10px;
+  font-size: 1.6rem;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 8px rgba(0, 150, 0, 0.2);
+}
+
+.input-group input:focus + i {
+  color: var(--green);  /* Icon changes on focus */
+}
+
+/* --- Login Button --- */
+.login-btn {
+  display: inline-block;
+  font-weight: 600; 
+  margin: 1.2rem;
+  border-radius: 5rem;
+  background-color: var(--light-bg);
+  cursor: pointer;
+  color: var(--black);
+  font-size: 2rem;
+  padding: 1.5rem 4rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border: 2px solid var(--green);
+}
+
+.login-btn:hover {
+  background-color: var(--white);
+  color: var(--black);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* --- Divider (alt text) --- */
+.alt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 1.4rem;
+  margin: 20px 0;
+  text-align: center;
+  position: relative;
+}
+
+.alt::before,
+.alt::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  margin: 0 12px;
+}
+
+/* --- Google Button --- */
+.social-btn.google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--light-bg);
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--black);
+  cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.social-btn.google i {
+  font-size: 2rem;
+  color: var(--green);
+}
+
+.social-btn.google:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* === Dark Mode Styles === */
+body.dark-mode .login-form {
+  color: #eee;
+  box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+}
+
+body.dark-mode .login-form input {
+  border: 1px solid #555;
+  background: #222;    /* add dark background to inputs */
+  color: #eee;
+}
+
+body.dark-mode .form-group i {
+  color: #9aaefc;   /* soft light-blue for visibility */
+}
+
+body.dark-mode .login-form input:focus {
+  border-color: #4e9cff;
+  outline: none;
+}
+
+
+/* Dark mode */
+body.dark-mode .login-form input[type="password"] {
+  background: #222;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode .login-form input[type="password"]:focus {
+  border-color: #4e9cff;
+  box-shadow: 0 0 8px rgba(78,156,255,0.6);
+}
+
+
+
