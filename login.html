@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> FIKRA :) </title>
+<!--swiper css link-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- font awesome cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!--custom css link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+       <div class="login-page">
+  <!-- Left side with image -->
+  <div class="login-image">
+    <img src="images/login-animate.svg" alt="Login Illustration">
+  </div>
+
+  <!-- Right side with form -->
+  <div class="login-form">
+    <div class="login-card">
+      <h2>Welcome Back</h2>
+      <form>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="login-btn">Log In</button>
+        <p class="alt"> or continue with </p>
+        <div class="socials">
+         <a href="#" class="social-btn google">
+           <i class="fab fa-google"></i>
+           <span>Sign in with Google</span>
+        </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="shape one"></div>
+<div class="shape two"></div>
+<div class="shape three"></div>
+<!--custom js link -->
+<script>
+  // When the login page loads, check localStorage
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+</script>
+    <script src="script.js"></script>
+    </body>
+</html>
