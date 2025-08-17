@@ -1008,3 +1008,40 @@ body.dark-mode .signup-prompt a:hover {
     min-height: auto !important;
   }
 }
+
+.input-group {
+  position: relative;  /* for absolute positioning of error */
+}
+
+.error-message {
+  position: absolute;
+  left: 3rem;       /* aligns under input, not under icon */
+  top: 100%;        /* right below the input */
+  color: #e74c3c;
+  font-size: 1.5rem; /* your requested size */
+  display: none;     /* hidden by default */
+}
+
+/* Sign up / Sign in prompt */
+.signup-prompt {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #666;
+  text-align: center;
+}
+
+.signup-prompt button {
+  background: none;
+  border: none;
+  color: var(--green);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.signup-prompt button:hover {
+  color: #4e9cff;
+  text-decoration: underline;
+}
+
+
