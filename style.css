@@ -34,7 +34,6 @@ body.dark-mode .header {
 }
 
 * {
-  /*font-family: 'Rubik', sans-serif;*/
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
@@ -450,10 +449,6 @@ body.dark-mode .header .flex .navbar a:hover {
     margin-bottom: 1rem;
 }
 
-
-
-
-
 /*media queries*/
 @media (max-width: 991px) {
     html {
@@ -564,7 +559,8 @@ body.dark-mode .header .flex .navbar a:hover {
     width: 25rem;              /* keep the same width */
     scroll-snap-align: start;  /* snap to start (optional) */
     }
-
+    
+    
 
 }
 
@@ -588,37 +584,9 @@ body.dark-mode .header .flex .navbar a:hover {
     .contact .row {
         flex-direction: column-reverse;
     }
-    /* For smaller screens (phones) */
-@media (max-width: 768px) {
-    .contact .row {
-        flex-direction: column;  /* stack vertically */
-        align-items: center;     /* center both form and image */
-    }
+  }   
+    
 
-    .contact .row .image,
-    .contact .row form {
-        flex: 1 1 100%;          /* take full width */
-        max-width: 400px;        /* optional: limit max width */
-    }
-
-    .contact .row .image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .contact form .box {
-        font-size: 1.6rem;
-        padding: 1.2rem;
-    }
-
-    .contact .submit-btn {
-        width: 100%;
-        font-size: 1.8rem;
-        padding: 1.5rem;
-    }
-}
-
-}
 
 @media (max-width: 320px) {
     html {
@@ -638,37 +606,23 @@ body.dark-mode .header .flex .navbar a:hover {
     .header-buttons {
         position: relative; /* stays with logo row */
     }
-    /* For smaller screens (phones) */
-@media (max-width: 768px) {
-    .contact .row {
-        flex-direction: column;  /* stack vertically */
-        align-items: center;     /* center both form and image */
-    }
 
-    .contact .row .image,
-    .contact .row form {
-        flex: 1 1 100%;          /* take full width */
-        max-width: 400px;        /* optional: limit max width */
-    }
+    .login-image {
+    display: none;
+  }
 
-    .contact .row .image img {
-        width: 100%;
-        height: auto;
-    }
+  .login-form {
+    flex: 1 1 100%;
+    padding: 20px; /* reduce padding for small screens */
+  }
 
-    .contact form .box {
-        font-size: 1.6rem;
-        padding: 1.2rem;
-    }
-
-    .contact .submit-btn {
-        width: 100%;
-        font-size: 1.8rem;
-        padding: 1.5rem;
-    }
+  .login-card {
+    padding: 50px 30px; /* adjust card size */
+    min-height: auto;
+  }
 }
 
-}
+
 
 
 .header-buttons {
@@ -824,13 +778,16 @@ body.dark-mode .header .flex .navbar a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* ensures no overflow */
 }
 
 .login-image img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;          /* full width of the container */
+  max-width: 100%;      /* prevents it from growing too big */
+  height: auto;         /* maintain aspect ratio */
+  object-fit: contain;  /* scale image inside container without cropping */
 }
+
 
 /* Right side (form) */
 .login-form {
@@ -1001,5 +958,53 @@ body.dark-mode .login-form input[type="password"]:focus {
   box-shadow: 0 0 8px rgba(78,156,255,0.6);
 }
 
+.signup-prompt {
+  margin-top: 25px;
+  font-size: 1.4rem;
+  color: #666;
+  text-align: center;
+}
 
+.signup-prompt a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
 
+.signup-prompt a:hover {
+  color: #4e9cff;
+  text-decoration: underline;
+}
+
+body.dark-mode .signup-prompt {
+  color: #ccc;
+}
+
+body.dark-mode .signup-prompt a {
+  color: #9aaefc;
+}
+
+body.dark-mode .signup-prompt a:hover {
+  color: #c0d4ff;
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column !important; /* ensure it applies */
+  }
+
+  .login-image {
+    display: none !important; /* hide image */
+  }
+
+  .login-form {
+    width: 100% !important;
+    padding: 20px !important;
+  }
+
+  .login-card {
+    padding: 50px 20px !important;
+    min-height: auto !important;
+  }
+}
