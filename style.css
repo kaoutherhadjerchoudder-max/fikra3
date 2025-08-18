@@ -1226,7 +1226,7 @@ form#extraTeacherForm textarea {
   border-radius: 1rem;
   max-width: 650px;
   width: 95%;
-  max-height: 80vh; /* limit height */
+  max-height: 95vh; /* limit height */
   padding: 2rem;
   box-shadow: 0 15px 35px rgba(0,0,0,0.3);
   display: flex;
@@ -1556,4 +1556,5 @@ body.dark-mode .subject-pill input[type="checkbox"]:checked + label {
   border-color: var(--shape1);
   box-shadow: 0 6px 15px rgba(42,103,255,0.6);
 }
+
 
