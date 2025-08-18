@@ -228,26 +228,36 @@ signupForm?.addEventListener("submit", (e) => {
 
   // ===== PHOTO PREVIEW =====
   const photoInput = document.getElementById("photoInput");
-  const photoPreview = document.getElementById("photoPreview");
-  const cameraIcon = document.querySelector(".photo-upload i");
+const photoPreview = document.getElementById("photoPreview");
+const cameraIcon = document.querySelector(".photo-upload i");
 
-  if (photoInput) {
-    photoInput.addEventListener("change", function(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          photoPreview.src = e.target.result;
-          photoPreview.style.display = "block";
-          if (cameraIcon) cameraIcon.style.display = "none";
-        };
-        reader.readAsDataURL(file);
-      } else {
-        photoPreview.src = "";
-        photoPreview.style.display = "none";
-        if (cameraIcon) cameraIcon.style.display = "block";
+if (photoInput) {
+  photoInput.addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      // Only proceed if it's an image
+      if (!file.type.startsWith("image/")) {
+        alert("Please select an image file!");
+        return;
       }
-    });
-  }
-  
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        photoPreview.src = e.target.result;
+        photoPreview.style.display = "block";
+        if (cameraIcon) cameraIcon.style.display = "none";
+      };
+      reader.onerror = function() {
+        alert("Failed to load the image. Try taking a new photo.");
+      };
+      reader.readAsDataURL(file);
+    } else {
+      // No file selected
+      photoPreview.src = "";
+      photoPreview.style.display = "none";
+      if (cameraIcon) cameraIcon.style.display = "block";
+    }
+  });
+}  
 });
+
