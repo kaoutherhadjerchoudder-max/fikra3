@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIKRA :)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class ="form-page">
+  <form  id="extraTeacherForm">
+    <h2>Teacher Registration</h2>
+    <!-- Photo upload -->
+    <label>Upload Your Photo:</label>
+   <div class="photo-upload">
+  <i class="fas fa-camera"></i>
+  <input type="file" id="photoInput" accept="image/*">
+  <img id="photoPreview" src="" alt="Preview">
+</div>
+
+    <!-- CCP account -->
+    <label>CCP Account Number:</label>
+    <input type="text" name="ccp" placeholder="Enter your CCP number" required>
+
+    <!-- Schedule -->
+    <label>Availability (Schedule):</label>
+    <textarea name="schedule" placeholder="e.g. Mon-Fri 9AM-5PM"></textarea>
+
+    <!-- Small definition -->
+    <label>About You:</label>
+    <textarea name="about" placeholder="Write a short description about yourself, your experience, and teaching style" required></textarea>
+
+    <!-- Medical level -->
+    <label>Your Level in Medicine:</label>
+    <select name="medLevel" required>
+      <option value="">--Select--</option>
+      <option value="2">2nd Year</option>
+      <option value="3">3rd Year</option>
+      <option value="4">4th Year</option>
+      <option value="5">5th Year</option>
+      <option value="6">6th Year</option>
+      <option value="7">7th Year</option>
+    </select>
+
+    <!-- Levels to teach (multi-select) -->
+    <label>Levels you want to teach:</label>
+    <label><input type="checkbox" class="teachLevel" value="1"> 1st Year</label>
+    <label><input type="checkbox" class="teachLevel" value="2"> 2nd Year</label>
+    <label><input type="checkbox" class="teachLevel" value="3"> 3rd Year</label>
+
+    <!-- Subjects -->
+    <div id="subjectsContainer" style="display:none;">
+      <label>Choose Subjects:</label>
+      <div id="subjectsList"></div>
+    </div>
+    <!-- Final submit -->
+<button type="submit" id="finalSubmit" disabled >OK</button>
+  </form>
+
+  <!-- Overlay to block form interaction -->
+  <div id="overlay"></div>
+
+   <!-- Conditions Modal -->
+<div id="conditionsModal" class="modal">
+  <div class="modal-content">
+    <h3>Teacher Account Terms & Conditions</h3>
+    <p>
+      Welcome to our educational platform! Before proceeding with your teacher account registration, please carefully review and accept the following terms and conditions. By clicking “I Accept,” you acknowledge your understanding and commitment to comply with these rules, ensuring a professional and safe learning environment for all participants.
+      <br><br>
+      <strong>Professional Conduct:</strong> As a teacher, you are expected to uphold the highest standards of professionalism. Communication with students, peers, and platform administrators must remain respectful and courteous at all times. Harassment, discriminatory behavior, or inappropriate language is strictly prohibited and may result in account suspension or termination.
+      <br><br>
+      <strong>Course Material & Content:</strong> All materials provided, including documents, videos, and images, must be original or appropriately licensed. Content should be accurate, educational, and suitable for the intended audience. The platform reserves the right to remove any content that violates copyright regulations, contains misinformation, or is deemed inappropriate.
+      <br><br>
+      <strong>Student Privacy & Data Protection:</strong> Teachers are required to safeguard student privacy. Personal information, photos, or recordings obtained during teaching must remain confidential. Sharing sensitive data outside the platform is strictly forbidden. Compliance with applicable privacy laws and platform guidelines is mandatory.
+      <br><br>
+      <strong>Scheduling & Attendance:</strong> Teachers should provide clear schedules for live sessions and ensure punctuality. If unable to attend a session, notify students and platform administrators in advance. Frequent absences or lack of communication may impact account standing and credibility.
+      <br><br>
+      <strong>Communication & Feedback:</strong> Constructive feedback enhances the student learning experience. Maintain professional communication through the platform’s messaging or comment systems. Sharing personal contact details is not permitted unless explicitly authorized by the platform.
+      <br><br>
+      <strong>Platform Use & Conduct:</strong> Your account is strictly for educational purposes. Misuse, including spamming, posting offensive content, or promoting unrelated services, is prohibited. The platform reserves the right to suspend or terminate accounts violating these rules.
+      <br><br>
+      <strong>Payment & Financial Compliance:</strong> Teachers handling paid courses must follow platform policies for all financial transactions. Ensure accurate information and compliance with applicable laws when processing course fees or payments.
+      <br><br>
+      <strong>Policy Updates:</strong> The platform may update these terms periodically. Continued use of your account constitutes acceptance of all revised conditions. Staying informed and adhering to updated policies is the responsibility of each teacher.
+      <br><br>
+      By clicking “I Accept,” you confirm that you have read, understood, and agreed to abide by these terms. Your commitment ensures a professional, safe, and high-quality learning experience for every student. We appreciate your dedication to fostering a positive and engaging educational community.
+    </p>
+    <button id="acceptBtn" type="button">I Accept</button>
+
+  </div>
+</div>
+</div>
+<div class="shape one"></div>
+<div class="shape two"></div>
+<div class="shape three"></div>
+<!--swiper js link -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!--custom js link -->
+    <script src="script.js"></script>
+</body>
+</html>
