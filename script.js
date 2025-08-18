@@ -227,37 +227,41 @@ signupForm?.addEventListener("submit", (e) => {
   }
 
   // ===== PHOTO PREVIEW =====
-  const photoInput = document.getElementById("photoInput");
+const photoInput = document.getElementById("photoInput");
 const photoPreview = document.getElementById("photoPreview");
 const cameraIcon = document.querySelector(".photo-upload i");
 
 if (photoInput) {
   photoInput.addEventListener("change", function(event) {
     const file = event.target.files[0];
-    if (file) {
-      // Only proceed if it's an image
-      if (!file.type.startsWith("image/")) {
-        alert("Please select an image file!");
-        return;
-      }
-
+    if (file && file.type.startsWith("image/")) {
+      // Use FileReader for preview
       const reader = new FileReader();
       reader.onload = function(e) {
         photoPreview.src = e.target.result;
         photoPreview.style.display = "block";
         if (cameraIcon) cameraIcon.style.display = "none";
       };
-      reader.onerror = function() {
-        alert("Failed to load the image. Try taking a new photo.");
-      };
       reader.readAsDataURL(file);
+
+      // Sometimes on mobile, forcing a small delay helps
+      setTimeout(() => {
+        if (!photoPreview.src) {
+          photoPreview.src = URL.createObjectURL(file);
+          photoPreview.style.display = "block";
+          if (cameraIcon) cameraIcon.style.display = "none";
+        }
+      }, 50);
+
     } else {
-      // No file selected
+      // No valid image selected
       photoPreview.src = "";
       photoPreview.style.display = "none";
       if (cameraIcon) cameraIcon.style.display = "block";
     }
   });
-}  
+}
+
 });
+
 
