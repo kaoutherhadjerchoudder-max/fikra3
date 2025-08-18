@@ -1045,3 +1045,515 @@ body.dark-mode .signup-prompt a:hover {
 }
 
 
+.role-section {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.role-label {
+  font-size: 1.3rem;         /* Bigger and readable */
+  font-weight: 600;          /* Bold */
+  color: #4a90e2;            /* Nice accent color */
+  text-align: center;        /* Centered */
+  margin-bottom: 0.8rem;     /* Space below */
+  letter-spacing: 0.5px;     /* Small spacing for elegance */
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional underline accent */
+.role-label::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background: #4a90e2;
+  margin: 0.3rem auto 0;   /* Center underline */
+  border-radius: 2px;
+}
+
+
+.role-btn {
+    display: inline-block;
+    font-weight: 600; 
+    margin: 1.2rem;
+    border-radius: 5rem;
+    background-color: var(--light-bg);
+    cursor: pointer;
+    color: var(--black);
+    font-size: 2rem; /* bigger text */
+    padding: 1.5rem 4rem; /* more inside space */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* deeper shadow */
+    border: 2px solid var(--green); /* matches theme */
+}
+
+.role-btn:hover {
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.role-btn.active {
+  background: linear-gradient(135deg, var(--shape1), var(--shape3));
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(42,103,255,0.35);
+  border-radius: 1rem;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.role-btn.active:hover {
+  box-shadow: 0 12px 25px rgba(42,103,255,0.5);
+  transform: translateY(-4px) scale(1.02);
+}
+
+
+/* ---------- FORM CONTAINER ---------- */
+form#extraTeacherForm {
+  max-width: 700px; 
+  margin: 5rem auto; 
+  padding: 3rem 4rem;
+  border-radius: 1.5rem;
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+  animation: fadeIn 0.8s ease;
+}
+
+/* ---------- FORM TITLE ---------- */
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ---------- LABELS ---------- */
+form#extraTeacherForm label {
+  display: block;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+  color: #374151;
+  font-size: 1.4rem;
+}
+
+/* ---------- INPUTS & TEXTAREAS ---------- */
+form#extraTeacherForm input[type="text"],
+form#extraTeacherForm input[type="file"],
+form#extraTeacherForm textarea,
+form#extraTeacherForm select {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-size: 1.4rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.8rem;
+  color: #111827;
+  transition: 0.3s ease;
+  background: #f9fafb;
+}
+
+form#extraTeacherForm input:focus,
+form#extraTeacherForm textarea:focus,
+form#extraTeacherForm select:focus {
+  border-color: #7494ec;
+  box-shadow: 0 0 12px rgba(116,148,236,0.3);
+  outline: none;
+  background: #fff;
+}
+
+/* ---------- CHECKBOX STYLING ---------- */
+form#extraTeacherForm input[type="checkbox"] {
+  accent-color: #7494ec;
+  transform: scale(1.2);
+  margin-right: 0.6rem;
+}
+
+/* ---------- TEXTAREA ---------- */
+form#extraTeacherForm textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+#finalSubmit {
+  display: block;
+  margin: 2rem auto 0;
+  font-weight: 600; 
+  border-radius: 5rem;
+  background: linear-gradient(135deg, #3b82f6, #7494ec);
+  cursor: pointer;
+  color: white;
+  font-size: 1.8rem;
+  padding: 1.2rem 4rem;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 8px 20px rgba(59,130,246,0.4);
+}
+
+#finalSubmit:disabled {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+#finalSubmit:hover:enabled {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(59,130,246,0.6);
+}
+
+/* ---------- Modal Overlay ---------- */
+/* Full-screen Modal Container */
+#conditionsModal {
+  display: flex; /* show modal */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6); /* semi-transparent overlay */
+  z-index: 9999;
+}
+
+
+/* ---------- Modal Box ---------- */
+#conditionsModal .modal-content {
+  background: #fff;
+  border-radius: 1rem;
+  max-width: 650px;
+  width: 95%;
+  max-height: 80vh; /* limit height */
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* ---------- Modal Title ---------- */
+#conditionsModal h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #2563eb; /* trending blue color */
+}
+
+/* ---------- Scrollable Paragraph ---------- */
+#conditionsModal p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #333;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Custom scrollbar */
+#conditionsModal p::-webkit-scrollbar {
+  width: 8px;
+}
+
+#conditionsModal p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#conditionsModal p::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+#conditionsModal p::-webkit-scrollbar-thumb:hover {
+  background: #1e40af;
+}
+
+/* ---------- Accept Button ---------- */
+#conditionsModal #acceptBtn {
+  align-self: center;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: #2563eb;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#conditionsModal #acceptBtn:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.4);
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+/* -------- Photo Upload -------- */
+.photo-upload {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 1.5rem auto;
+  border: 2px dashed #3b82f6;
+  border-radius: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59,130,246,0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+.photo-upload:hover {
+  background: rgba(59,130,246,0.1);
+  border-color: #2563eb;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(59,130,246,0.25);
+}
+
+/* Hide native input */
+.photo-upload input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+}
+
+/* Camera icon */
+.photo-upload i {
+  font-size: 3rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  transition: 0.3s;
+}
+
+.photo-upload span {
+  font-size: 1.2rem;
+  color: #4b5563;
+}
+
+.photo-upload:hover i {
+  transform: scale(1.2);
+  color: #1d4ed8;
+}
+
+/* Image preview */
+.photo-upload img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.2rem;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: fadeIn 0.5s ease;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+@keyframes slideUp {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.photo-upload {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 1.5rem auto;
+  border: 2px dashed #74a8ec;
+  border-radius: 50%; /* make the container circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(116,168,236,0.05);
+  cursor: pointer;
+  overflow: hidden; /* ensures image stays inside circle */
+  transition: all 0.3s ease;
+}
+
+.photo-upload img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%; /* make the image itself circular */
+  top: 0;
+  left: 0;
+  display: none; /* hidden initially */
+}
+
+
+/* ===== SUBJECTS STYLING ===== */
+#subjectsContainer {
+  margin: 2rem 0;
+}
+
+#subjectsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.subject-pill input[type="checkbox"] {
+  display: none;
+}
+
+.subject-pill label {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 2rem;
+  border: 1.5px solid #74a8ec;
+  background: rgba(116,168,236,0.08);
+  color: #2563eb;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.subject-pill label:hover {
+  background: rgba(59,130,246,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(59,130,246,0.2);
+}
+
+.subject-pill input[type="checkbox"]:checked + label {
+ background-color: var(--white);
+    color: var(--black);
+    transform: translateY(-3px) scale(1.05); /* lift and grow */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* stronger shadow */
+}
+
+/* ===== DARK MODE USING YOUR VARIABLES ===== */
+body.dark-mode form#extraTeacherForm {
+  background: rgba(44, 47, 64, 0.8); /* var(--light-white) semi-transparent */
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--black);
+}
+
+body.dark-mode form#extraTeacherForm label {
+  color: #d1d5db; /* lighter labels */
+}
+
+body.dark-mode form#extraTeacherForm input[type="text"],
+body.dark-mode form#extraTeacherForm input[type="file"],
+body.dark-mode form#extraTeacherForm textarea,
+body.dark-mode form#extraTeacherForm select {
+  background: var(--light-bg);
+  color: var(--black);
+  border: 1px solid #4b5563;
+}
+
+body.dark-mode form#extraTeacherForm input:focus,
+body.dark-mode form#extraTeacherForm textarea:focus,
+body.dark-mode form#extraTeacherForm select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 12px rgba(154,174,252,0.5);
+  background: #2c2f40;
+}
+
+body.dark-mode form#extraTeacherForm input[type="checkbox"] {
+  accent-color: var(--green);
+}
+
+body.dark-mode #finalSubmit {
+  background: linear-gradient(135deg, var(--shape1), var(--shape3));
+  box-shadow: 0 8px 20px rgba(42,103,255,0.6);
+}
+
+body.dark-mode #finalSubmit:disabled {
+  background: #4b5563;
+  color: #9ca3af;
+}
+
+body.dark-mode #finalSubmit:hover:enabled {
+  box-shadow: 0 12px 30px rgba(42,103,255,0.8);
+}
+
+/* ===== MODAL DARK MODE ===== */
+body.dark-mode #conditionsModal {
+  background: rgba(0,0,0,0.85);
+}
+
+body.dark-mode #conditionsModal .modal-content {
+  background: var(--light-bg);
+  color: var(--black);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+}
+
+body.dark-mode #conditionsModal h3 {
+  color: var(--green);
+}
+
+body.dark-mode #conditionsModal p {
+  color: var(--black);
+  background: transparent;
+}
+
+body.dark-mode #conditionsModal #acceptBtn {
+  background: var(--green);
+  color: var(--black);
+}
+
+body.dark-mode #conditionsModal #acceptBtn:hover {
+  background: #5d7bff;
+}
+
+/* ===== PHOTO UPLOAD DARK MODE ===== */
+body.dark-mode .photo-upload {
+  background: rgba(42,103,255,0.05);
+  border: 2px dashed var(--green);
+}
+
+body.dark-mode .photo-upload i {
+  color: var(--green);
+}
+
+body.dark-mode .photo-upload:hover i {
+  color: var(--shape1);
+}
+
+body.dark-mode .photo-upload span {
+  color: var(--black);
+}
+
+/* ===== SUBJECTS DARK MODE ===== */
+body.dark-mode .subject-pill label {
+  background: rgba(42,103,255,0.15);
+  color: var(--green);
+  border: 1.5px solid var(--green);
+}
+
+body.dark-mode .subject-pill input[type="checkbox"]:checked + label {
+  background: var(--shape1);
+  color: var(--black);
+  border-color: var(--shape1);
+  box-shadow: 0 6px 15px rgba(42,103,255,0.6);
+}
+
