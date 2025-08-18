@@ -15,8 +15,8 @@
 
   <!-- Left side with images -->
   <div class="login-image">
-    <img src="login-animate.svg" alt="Login Illustration" id="loginImage">
-    <img src="login-animate.svg" alt="Sign Up Illustration" id="signupImage" style="display:none;">
+    <img src="images/login-animate.svg" alt="Login Illustration" id="loginImage">
+    <img src="images/login-animate.svg" alt="Sign Up Illustration" id="signupImage" style="display:none;">
   </div>
 
   <!-- Right side with forms -->
@@ -53,7 +53,7 @@
 <div class="login-card phone-responsive" id="signUpForm" style="display:none;">
   
   <h2>Create Account</h2>
-  <form>
+  <form id="mainSignupForm">
     <div class="input-group">
       <i class="fas fa-user"></i>
       <input type="text" name="username" placeholder="Username" required>
@@ -75,6 +75,14 @@
       <i class="fas fa-lock"></i>
       <input type="password" name="confirm-password" placeholder="Confirm Password" required>
     </div>
+    <!-- Role selection -->
+<div class="role-section">
+  <div class="role-buttons">
+    <button type="button" id="studentBtn" class="role-btn">Student</button>
+    <button type="button" id="teacherBtn" class="role-btn">Teacher</button>
+  </div>
+</div>
+
     <button type="submit" class="login-btn">SIGN UP</button>
     <p class="alt"> or continue with </p>
     <div class="socials">
@@ -88,6 +96,7 @@
       <button type="button" id="signInButton">Sign In</button>
     </div>
   </form>
+  
 </div>
 
   </div>
@@ -102,6 +111,7 @@
   if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark-mode");
   }
+  
 </script>
 
 <!--swiper js link -->
