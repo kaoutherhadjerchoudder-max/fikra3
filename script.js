@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // ===== MENU TOGGLE =====
   const menuBtn = document.querySelector('#menu-btn');
   const navbar = document.querySelector('.header .flex .navbar');
 
   if (menuBtn && navbar) {
     menuBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); // prevent triggering the document click
+      e.stopPropagation();
       menuBtn.classList.toggle('fa-times');
       navbar.classList.toggle('active');
     });
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener('click', (e) => {
       if (!navbar.contains(e.target) && !menuBtn.contains(e.target)) {
         navbar.classList.remove('active');
-        menuBtn.classList.remove('fa-times'); // also reset icon
+        menuBtn.classList.remove('fa-times');
       }
     });
   }
@@ -67,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTheme();
     });
   }
-
   updateTheme();
 
   // ===== LOGIN / SIGNUP TOGGLE =====
@@ -79,13 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupImage = document.getElementById("signupImage");
 
   if (signInButton && signUpButton && signInForm && signUpForm && loginImage && signupImage) {
-    // Show login first
     signInForm.style.display = "block";
     signUpForm.style.display = "none";
     loginImage.style.display = "block";
     signupImage.style.display = "none";
 
-    // Toggle to Sign Up
     signUpButton.addEventListener("click", (e) => {
       e.preventDefault();
       signInForm.style.display = "none";
@@ -94,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
       signupImage.style.display = "block";
     });
 
-    // Toggle to Sign In
     signInButton.addEventListener("click", (e) => {
       e.preventDefault();
       signUpForm.style.display = "none";
@@ -104,25 +99,155 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
-
-function isValidAlgerianPhone(phone) {
+  // ===== ALGERIAN PHONE VALIDATION =====
+  function isValidAlgerianPhone(phone) {
     phone = phone.replace(/[\s()-]/g, "");
     const regex = /^(?:\+213|0)([5-7])\d{8}$/;
     return regex.test(phone);
-}
+  }
 
-const phoneInput = document.querySelector('input[name="phone"]');
-const errorMessage = phoneInput.nextElementSibling; // the <span> under input
-
-phoneInput.addEventListener('blur', () => {
-    if (!isValidAlgerianPhone(phoneInput.value)) {
+  const phoneInput = document.querySelector('input[name="phone"]');
+  if (phoneInput) {
+    const errorMessage = phoneInput.nextElementSibling;
+    phoneInput.addEventListener('blur', () => {
+      if (!isValidAlgerianPhone(phoneInput.value)) {
         phoneInput.classList.add('invalid');
         errorMessage.textContent = "Invalid phone number!";
         errorMessage.style.display = 'block';
-    } else {
+      } else {
         phoneInput.classList.remove('invalid');
         errorMessage.textContent = '';
         errorMessage.style.display = 'none';
-    }
+      }
+    });
+  }
+
+  // ===== ROLE SELECTION =====
+const studentBtn = document.getElementById("studentBtn");
+const teacherBtn = document.getElementById("teacherBtn");
+const signupForm = document.getElementById("mainSignupForm");
+let selectedRole = ""; // just use a variable
+
+if (studentBtn) studentBtn.type = "button";
+if (teacherBtn) teacherBtn.type = "button";
+
+// Click student
+studentBtn?.addEventListener("click", () => {
+  selectedRole = "student";
+  studentBtn.classList.add("active");
+  teacherBtn.classList.remove("active");
+});
+
+// Click teacher
+teacherBtn?.addEventListener("click", () => {
+  selectedRole = "teacher";
+  teacherBtn.classList.add("active");
+  studentBtn.classList.remove("active");
+});
+
+// Submit
+signupForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!selectedRole) {
+    alert("⚠️ Please choose your role (Student or Teacher).");
+    return;
+  }
+  if (selectedRole === "student") {
+    window.location.href = "index.html";
+  } else if (selectedRole === "teacher") {
+    window.location.href = "TeacherLogin.html";
+  }
+});
+
+
+ 
+
+  // ===== TEACHER SUBJECTS =====
+  const subjects = {
+    1: ["Anatomy", "Biophysics", "Histology"],
+    2: ["Biochemistry", "Physiology", "Cytology"],
+    3: ["Pathology", "Pharmacology", "Immunology"]
+  };
+
+  const checkboxes = document.querySelectorAll(".teachLevel");
+  const subjectsContainer = document.getElementById("subjectsContainer");
+  const subjectsList = document.getElementById("subjectsList");
+
+  checkboxes.forEach(cb => {
+    cb.addEventListener("change", () => {
+      subjectsList.innerHTML = "";
+      const selected = [...checkboxes].filter(c => c.checked).map(c => c.value);
+
+      if (selected.length > 0) {
+        subjectsContainer.style.display = "block";
+        selected.forEach(level => {
+          subjects[level].forEach(sub => {
+            subjectsList.innerHTML += `
+              <div class="subject-pill">
+                <input type="checkbox" id="sub-${level}-${sub}" name="subjects" value="${sub}">
+                <label for="sub-${level}-${sub}">${sub}</label>
+              </div>
+            `;
+          });
+        });
+      } else {
+        subjectsContainer.style.display = "none";
+      }
+    });
+  });
+
+  // ===== CONDITIONS MODAL =====
+  const modal = document.getElementById("conditionsModal");
+  const overlay = document.getElementById("overlay");
+  const acceptBtn = document.getElementById("acceptBtn");
+  const finalSubmit = document.getElementById("finalSubmit");
+  const formPage = document.querySelector(".form-page");
+
+  // Disable form initially
+  finalSubmit.disabled = true;
+  formPage.classList.add("disabled");
+  overlay.style.display = "block";
+  modal.style.display = "flex";
+
+  acceptBtn?.addEventListener("click", () => {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+    finalSubmit.disabled = false;
+    formPage.classList.remove("disabled");
+  });
+
+  // ===== TEACHER FORM SUBMIT =====
+  const extraTeacherForm = document.getElementById("extraTeacherForm");
+  if (extraTeacherForm) {
+    extraTeacherForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("✅ Teacher account created successfully!");
+      window.location.href = "index.html";
+    });
+  }
+
+  // ===== PHOTO PREVIEW =====
+  const photoInput = document.getElementById("photoInput");
+  const photoPreview = document.getElementById("photoPreview");
+  const cameraIcon = document.querySelector(".photo-upload i");
+
+  if (photoInput) {
+    photoInput.addEventListener("change", function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          photoPreview.src = e.target.result;
+          photoPreview.style.display = "block";
+          if (cameraIcon) cameraIcon.style.display = "none";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        photoPreview.src = "";
+        photoPreview.style.display = "none";
+        if (cameraIcon) cameraIcon.style.display = "block";
+      }
+    });
+  }
+  
 });
