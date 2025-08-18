@@ -234,34 +234,33 @@ const cameraIcon = document.querySelector(".photo-upload i");
 if (photoInput) {
   photoInput.addEventListener("change", function(event) {
     const file = event.target.files[0];
-    if (file && file.type.startsWith("image/")) {
-      // Use FileReader for preview
+    if (file) {
       const reader = new FileReader();
       reader.onload = function(e) {
+        // Set the preview src
         photoPreview.src = e.target.result;
+
+        // Show the preview and hide the camera icon
         photoPreview.style.display = "block";
-        if (cameraIcon) cameraIcon.style.display = "none";
+        cameraIcon.style.display = "none";
+
+        // Ensure photoPreview takes the full space
+        photoPreview.style.width = "100%";
+        photoPreview.style.height = "auto";
+        photoPreview.style.objectFit = "cover";
       };
       reader.readAsDataURL(file);
-
-      // Sometimes on mobile, forcing a small delay helps
-      setTimeout(() => {
-        if (!photoPreview.src) {
-          photoPreview.src = URL.createObjectURL(file);
-          photoPreview.style.display = "block";
-          if (cameraIcon) cameraIcon.style.display = "none";
-        }
-      }, 50);
-
     } else {
-      // No valid image selected
+      // No file chosen
       photoPreview.src = "";
       photoPreview.style.display = "none";
-      if (cameraIcon) cameraIcon.style.display = "block";
+      cameraIcon.style.display = "block";
     }
   });
 }
 
+
 });
+
 
 
